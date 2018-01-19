@@ -168,7 +168,7 @@ The run function takes the input FASTA file, from this is generates a list of th
            print("BWA Indexer")
            Tool.__init__(self)
 
-       def bwa_runner(self, genome_file):
+       def bwa_index_genome(self, genome_file):
            """
            Create an index of the genome FASTA file with BWA. These are saved
            alongside the assembly file. If the index has already been generated

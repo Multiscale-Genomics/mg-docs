@@ -18,21 +18,23 @@ Development Checklist
 
 This document describes the standard work flow to help developers when creating a new tool or pipeline. The purpose is to aid the developer in the most efficient way for integrating a new tool or pipeline and ensure that all steps have been addressed so that they have a ready to deploy Tool and Pipeline within the MuG VRE.
 
-If you are adding new functionality to an already existing repository then you can skip ahead to step N.
+If you are adding new functionality to an already existing repository then you can skip ahead and concentrate on steps 1 to 6.
+
+If you are adding a new pipeline that just integrates already existing tools then you need to look at steps 3 to 6.
 
 0 - Copy mg-process-test from GitHub
 ------------------------------------
 
-0.0 - Create an empty repsoitory
+0.0 - Create an empty repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In GitHub create a blank repository with no README, license or gitignore file. These files will be inherited from the mg-process-test file. For this example it will be called `mg-process-test1.git`.
+In GitHub create a blank repository with no README, license or `.gitignore` file. These files will be inherited from the mg-process-test file. For this example it will be called `mg-process-test1.git`.
 
 
 0.1 - Copy the mg-process-test repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From GitHub take a copy of the mg-process-test repsoitory:
+From GitHub take a copy of the mg-process-test repository:
 
 .. code-block:: none
 
@@ -145,7 +147,7 @@ Checklist 3
 Checklist
 ^^^^^^^^^
 
-#. Ensure that there is a JSON configration file present in the tool_json for each pipeline.
+#. Ensure that there is a JSON configuration file present in the tool_json for each pipeline.
 
 
 5 - Installation Documentation

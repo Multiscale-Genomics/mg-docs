@@ -144,8 +144,8 @@ Checklist 3
 4 - VRE JSON Configuration
 --------------------------
 
-Checklist
-^^^^^^^^^
+Checklist 4
+^^^^^^^^^^^
 
 #. Ensure that there is a JSON configuration file present in the tool_json for each pipeline.
 
@@ -153,8 +153,9 @@ Checklist
 5 - Installation Documentation
 ------------------------------
 
-Checklist
-^^^^^^^^^
+Checklist 5
+^^^^^^^^^^^
+
 #. Make sure that setup.py, setup.cfg and requirements.txt are updated with any new packages required for installation
 #. Update docs/install.rst if there is any external software that is required by tool or pipeline along with the required command to install that software
 
@@ -164,8 +165,8 @@ Checklist
 
 Now that you have a functional pipeline and tool it now needs to be tested within a COMPSs environment. Download the latest version of the `COMPSs virtual machine <https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar/>`_ from the BSC website.
 
-Checklist
-^^^^^^^^^
+Checklist 6
+^^^^^^^^^^^
 
 #. Was it possible to install everything based on the installation scripts and documentation?
 #. Do all the test scripts pass when they are run?
@@ -179,6 +180,13 @@ Checklist
 Now that you have a fully documented pipeline, with tests it is possible to hook up your GitHub repository with ReadTheDocs.org, Travisci.org and Landscape.io. These services will automatically build you documentation, run the tests and check the compliance of the code with that of PEP8 respectively.
 
 It is possible to login to each service using your GitHub account and link the repository.
+
+Checklist 7
+^^^^^^^^^^^
+
+#. You have your documentation building on ReadTheDocs.org
+#. You have your test scripts running on TravisCI and passing
+#. Your code is being continually analysed by Landscape.io
 
 
 8 - Congratulations

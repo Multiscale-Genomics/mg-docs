@@ -22,9 +22,11 @@ HOWTO
 
    howto_tool
    howto_pipeline
+   howto_documentation
    howto_config
    howto_logging
    howto_testing
+   development_checklist
 
 The following is a walk through of developing a tool and pipeline wrapper to include new functionality within the MuG VRE. There are several stages covering the Tool development, using the tool within a pipeline and defining the configuration files required so that the final product can be smoothly integrated into the MuG VRE.
 
@@ -40,11 +42,16 @@ All of the examples in the following sections describe code that has been incorp
 
 In the test process there are example pipelines, tools, documentation, setup scripts unit tests and config files. This repository can be forked and used as the base for developing new pipelines and tools.
 
+The following documents will help guide with the creation of all the components required for creating a tool ready to be integrated into the VRE. To help with the development and `Development Checklist <development_checklist.html>`_ has been created to provide a generic guide and checklist to help make sure that nothing has been forgotten.
+
 `Wrapping a Tool <howto_tool.html>`_
    This section guides you through how to wrap an external tool, or create a tool that utilises the pyCOMPSs framework and should be capable of running within the MuG VRE environment.
 
 `Creating a Pipeline <howto_pipeline.html>`_
    Once you have created a tool you can now incorporate one or multiple tools into a pipeline. This will handle the passing of variables from the VRE to the tool and the tracking of outputs ready for handing back to the VRE. This document will also help in creating test input metadata and file location JSON files that are required to run the pipeline.
+
+`Documentation <howto_documentation.html>`_
+   This provides a overview of the documentation requirements as described by the `MuG Coding Standards <http://multiscale-genomics.readthedocs.io/en/latest/coding_standards.html>`_.
 
 `Logging <howto_logging.html>`_
    Takes you through adding logging to your pipelines and tools to return messages to the user via the MuG VRE.

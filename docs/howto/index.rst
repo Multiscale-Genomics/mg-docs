@@ -34,27 +34,27 @@ When it comes to developing the code all the code should stick to a common stand
 
 Adding a new function
 ---------------------
-All of the examples in the following sections describe code that has been incorporated into a functional workflow and tool within a demonstration VRE Tool that is ready for deployment within the VRE. The code can be found in GitHub repository `mg-process-test <https://github.com/Multiscale-Genomics/mg-process-test>`_.
+All of the examples in the following sections describe code that has been incorporated into a functional pipeline and tool within a demonstration VRE Tool that is ready for deployment within the VRE. The code can be found in GitHub repository `mg-process-test <https://github.com/Multiscale-Genomics/mg-process-test>`_.
 
    `GitHub mg-process-test <https://github.com/Multiscale-Genomics/mg-process-test>`_
 
-In the test process there are example workflows, tools, documentation, setup scripts unit tests and config files. This repository can be forked and used as the base for developing new workflows and tools.
+In the test process there are example pipelines, tools, documentation, setup scripts unit tests and config files. This repository can be forked and used as the base for developing new pipelines and tools.
 
 `Wrapping a Tool <howto_tool.html>`_
    This section guides you through how to wrap an external tool, or create a tool that utilises the pyCOMPSs framework and should be capable of running within the MuG VRE environment.
 
-`Adding a tool to a pipeline <howto_pipeline.html>`_
-   Once you have created a tool you can now one or multiple tools into a pipeline. This will handle the passing of variables from the VRE to the tool and the tracking of outputs ready for handing back to the VRE. This document will also help in creating test input metadata and file location JSON files that are required to run the pipeline.
-
-`Configuration <howto_config.html>`_
-   This takes you through creating JSON configuration files for your tool. This should define all the inputs, outputs and any arguments that are required by the pipelines and tools.
+`Creating a Pipeline <howto_pipeline.html>`_
+   Once you have created a tool you can now incorporate one or multiple tools into a pipeline. This will handle the passing of variables from the VRE to the tool and the tracking of outputs ready for handing back to the VRE. This document will also help in creating test input metadata and file location JSON files that are required to run the pipeline.
 
 `Logging <howto_logging.html>`_
-   Takes you through adding logging to your workflows and tools to return messages to the user via the MuG VRE.
+   Takes you through adding logging to your pipelines and tools to return messages to the user via the MuG VRE.
 
 `Testing Your Code <howto_testing.html>`_
-   A important part of making sure that a pipeline or tool is ready for integration is ensuring that the code has been tested. This covers testing the code is functional and that it is capable of running wihin the infrastructure used by the VRE.
+   A important part of making sure that a pipeline or tool is ready for integration is ensuring that the code has been tested. This covers testing the code is functional and that it is capable of running within the infrastructure used by the VRE.
+
+`VRE Configuration <howto_config.html>`_
+   This takes you through creating JSON configuration files for your tool. This should define all the inputs, outputs and any arguments that are required by the pipelines and tools.
 
 Integrating a new tool into the VRE
 -----------------------------------
-The next step is the integration of the workflow/tool into the MuG VRE. To help with this a `GoogleDoc <https://docs.google.com/document/d/1Fid4RkNyt9-_0g_SrCw8J1k8MrOMZI4GLzzpdCAATZc/edit?usp=sharing>`_ has been prepared that details the requirements for correctly creating the Tool description JSON file and the requirements for parameters needed for an application.
+The next step is the integration of the pipeline/tool into the MuG VRE. The `Configuration <howto_config.html>`_ should provide guide to the initial JSON files. The full JSON specification is located in this `GoogleDoc <https://docs.google.com/document/d/1Fid4RkNyt9-_0g_SrCw8J1k8MrOMZI4GLzzpdCAATZc/edit?usp=sharing>`_. The details the requirements for correctly creating the Tool description JSON file and the requirements for parameters needed for an application.

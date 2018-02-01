@@ -16,7 +16,7 @@
 HOWTO - Logging
 ===============
 
-As the workflows and tools with the MuG VRE environment run wthout the terminal returning to the user it is important to have a way to communicate to the user that is an error with the workflow. As the code is run within a cluster the text that is printed to screen wont be returned to the user. Within the Tool API a logging interface has been implemented
+As the pipelines and tools with the MuG VRE environment run wthout the terminal returning to the user it is important to have a way to communicate to the user that is an error with the pipeline. As the code is run within a cluster the text that is printed to screen wont be returned to the user. Within the Tool API a logging interface has been implemented
 
 Levels of Logging
 -----------------
@@ -53,4 +53,4 @@ To add elements to the log can be implemented by:
 
    logger.info("Processing Text")
 
-This logging has been implemented within the `mg-process-test <https://github.com/Multiscale-Genomics/mg-process-test>`_ repository within the process_test.py and within the testTool.py scripts. There is no logging within the @task as from this it is possible to return an actual object that can then be checked by the run() function to determine the correct error to return to the main workflow.
+This logging has been implemented within the `mg-process-test <https://github.com/Multiscale-Genomics/mg-process-test>`_ repository within the process_test.py and within the testTool.py scripts. There is no logging within the @task as from this it is possible to return an actual object that can then be checked by the run() function to determine the correct error to return to the main pipeline.

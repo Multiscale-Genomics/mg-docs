@@ -114,7 +114,7 @@ There are 2 ways of calling this function, either directly from another program 
        logger.info("1. Instantiate and launch the App")
        from apps.jsonapp import JSONApp
        app = JSONApp()
-       result = app.launch(process_genome,
+       result = app.launch(process_test,
                            config,
                            in_metadata,
                            out_metadata)

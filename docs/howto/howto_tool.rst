@@ -71,35 +71,76 @@ This is a test tool that takes an input file, writes some text to it and then re
            print("Test writer")
            Tool.__init__(self)
 
-      @task(file_loc=FILE_INOUT)
-      def test_writer(self, file_loc):
-          with open(file_loc, "w") as file_handle:
-              file_handle.write("This is the test writer")
+       @task(returns=bool, file_loc=FILE_OUT, isModifier=False)
+       def test_writer(self, file_loc):
+           """
+           Writes a single line to a file and then returns that file
 
-          return True
+           Parameters
+           ----------
+           file_loc : str
+               Location of an output file
 
-      def run(self, input_files, metadata, output_files):
-          results = self.test_writer(
-              input_files["input_file_location"],
-              output_files["output_file_location"]
-          )
+           Returns
+           -------
+           bool
+               Writes to the file, which is returned by pyCOMPSs to the defined location
+           """
+           try:
+               with open(file_loc, "w") as file_handle:
+                   file_handle.write("This is the test writer")
+           except IOError as error:
+               logger.fatal("I/O error({0}): {1}".format(error.errno, error.strerror))
+               return False
 
-          results = compss_wait_on(results)
+           return True
 
-          output_metadata = {
+       def run(self, input_files, input_metadata, output_files):
+           """
+           The main function to run the test_writer tool
+
+           Parameters
+           ----------
+           input_files : dict
+               List of input files - In this case there are no input files required
+           input_metadata: dict
+               Matching metadata for each of the files, plus any additional data
+           output_files : dict
+               List of the output files that are to be generated
+
+           Returns
+           -------
+           output_files : dict
+               List of files with a single entry.
+           output_metadata : dict
+               List of matching metadata for the returned files
+           """
+
+           results = self.test_writer(
+               input_files["input_file_location"],
+               output_files["output_file_location"]
+           )
+
+           results = compss_wait_on(results)
+
+           if results is False:
+               logger.fatal("Test Writer: run failed")
+               return {}, {}
+
+           output_metadata = {
                "test": Metadata(
                    data_type="<data_type>",
                    file_type="txt",
                    file_path=output_files["test"],
-                   sources=[metadata["input_file_location"].file_path],
-                   taxon_id=metadata["input_file_location"].taxon_id,
+                   sources=[input_metadata["input_file_location"].file_path],
+                   taxon_id=input_metadata["input_file_location"].taxon_id,
                    meta_data={
                        "tool": "testTool"
                    }
                )
            }
 
-          return (output_files, output_metadata)
+           return (output_files, output_metadata)
 
 This is this simplest case of a Tool that will run a function within the COMPSS environment. The run function takes the input files, if the output files are defined it can use those as the output locations and any relevant metadata. The locations of the output files can also be defined within the run function as sometimes functions can generate a large number of files that are not always easy to define up front if the Tool is being run as part of the VRE or as part of a larger pipeline.
 
@@ -137,6 +178,8 @@ The run function takes the input FASTA file, from this is generates a list of th
    import sys
    import tarfile
 
+   from utils import logger
+
    try:
        if hasattr(sys, '_run_from_cmdl') is True:
            raise ImportError
@@ -144,12 +187,12 @@ The run function takes the input FASTA file, from this is generates a list of th
        from pycompss.api.task import task
        from pycompss.api.api import compss_wait_on
    except ImportError:
-       print("[Warning] Cannot import \"pycompss\" API packages.")
-       print("          Using mock decorators.")
+       logger.warn("[Warning] Cannot import \"pycompss\" API packages.")
+    logger.warn("          Using mock decorators.")
 
-       from dummy_pycompss import FILE_IN, FILE_OUT
-       from dummy_pycompss import task
-       from dummy_pycompss import compss_wait_on
+    from utils.dummy_pycompss import FILE_IN, FILE_OUT # pylint: disable=ungrouped-imports
+    from utils.dummy_pycompss import task # pylint: disable=ungrouped-imports
+    from utils.dummy_pycompss import compss_wait_on # pylint: disable=ungrouped-imports
 
    from basic_modules.tool import Tool
    from basic_modules.metadata import Metadata

@@ -64,12 +64,17 @@ This is a test tool that takes an input file, writes some text to it and then re
        Tool for writing to a file
        """
 
-       def __init__(self):
+       def __init__(self, configuration=None):
            """
            Init function
            """
            print("Test writer")
            Tool.__init__(self)
+
+           if configuration is None:
+               configuration = {}
+
+           self.configuration.update(configuration)
 
        @task(returns=bool, file_loc=FILE_OUT, isModifier=False)
        def test_writer(self, file_loc):
@@ -204,12 +209,17 @@ The run function takes the input FASTA file, from this is generates a list of th
        Tool for running indexers over a genome FASTA file
        """
 
-       def __init__(self):
+       def __init__(self, configuration=None):
            """
            Init function
            """
            print("BWA Indexer")
            Tool.__init__(self)
+
+           if configuration is None:
+               configuration = {}
+
+           self.configuration.update(configuration)
 
        def bwa_index_genome(self, genome_file):
            """

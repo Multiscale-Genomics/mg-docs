@@ -18,9 +18,9 @@ Development Checklist
 
 This document describes the standard work flow to help developers when creating a new tool or pipeline. The purpose is to aid the developer in the most efficient way for integrating a new tool or pipeline and ensure that all steps have been addressed so that they have a ready to deploy Tool and Pipeline within the MuG VRE.
 
-If you are adding new functionality to an already existing repository then you can skip ahead and concentrate on steps 1 to 6.
+.. note::  If you are adding a new tool and pipeline to an already existing repository then you can skip ahead and concentrate on **steps 1 to 6**.
 
-If you are adding a new pipeline that just integrates already existing tools then you need to look at steps 3 to 6.
+.. note::  If you are adding just a new pipeline that just integrates already existing tools then you need to look at **steps 3 to 6**.
 
 0 - Copy mg-process-test from GitHub
 ------------------------------------
@@ -40,13 +40,8 @@ From GitHub take a copy of the mg-process-test repository:
 
    git clone --depth 1 -b master https://github.com/Multiscale-Genomics/mg-process-test
 
-   cd mg-process-test
-   rm -rf .git
-
-   cd ../
-
+   rm -rf mg-process-test/.git
    mv mg-process-test mg-process-test1
-
    cd mg-process-test1
 
    git init
@@ -103,6 +98,7 @@ Checklist 2
 #. Test dataset generation has been fully documented and linked to the index.rst file
 #. Any scripts developed to create the datasets are stored in `scripts/.` and have matching license headers and documentation
 #. All code matches the PEP8 standard (by running pylint).
+#. All new tests have been added to TravisCI
 #. All tests are passing
 #. Ensure that the output of running the tests matches what you would expect
 
@@ -136,6 +132,7 @@ Checklist 3
 #. There is documentation for all functions in the pipeline script and test script
 #. Update docs/pipelines.rst to include documentation and links to the new pipeline to import all function documentation
 #. All code matches the PEP8 standard (by running pylint).
+#. All new tests have been added to TravisCI
 #. All tests are passing
 #. Ensure that the output of running the tests matches what you would expect
 #. The script can be run from the command line

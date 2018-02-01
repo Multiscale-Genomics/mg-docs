@@ -104,6 +104,7 @@ Checklist 2
 #. All tests are passing
 #. Ensure that the output of running the tests matches what you would expect
 
+
 3 - Create a Pipeline
 ---------------------
 
@@ -131,9 +132,54 @@ Checklist 3
 #. There is a license in the header of all pipelines and tests
 #. There is a test to run each pipeline
 #. There is documentation for all functions in the pipeline script and test script
+#. Update docs/pipelines.rst to include documentation and links to the new pipeline to import all function documentation
 #. All code matches the PEP8 standard (by running pylint).
 #. All tests are passing
 #. Ensure that the output of running the tests matches what you would expect
 #. The script can be run from the command line
 
-4 -
+
+4 - VRE JSON Configuration
+--------------------------
+
+Checklist
+^^^^^^^^^
+
+#. Ensure that there is a JSON configration file present in the tool_json for each pipeline.
+
+
+5 - Installation Documentation
+------------------------------
+
+Checklist
+^^^^^^^^^
+#. Make sure that setup.py, setup.cfg and requirements.txt are updated with any new packages required for installation
+#. Update docs/install.rst if there is any external software that is required by tool or pipeline along with the required command to install that software
+
+
+6 - COMPSs testing
+------------------
+
+Now that you have a functional pipeline and tool it now needs to be tested within a COMPSs environment. Download the latest version of the `COMPSs virtual machine <https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar/>`_ from the BSC website.
+
+Checklist
+^^^^^^^^^
+
+#. Was it possible to install everything based on the installation scripts and documentation?
+#. Do all the test scripts pass when they are run?
+#. When the test scripts have run do you get the expected results?
+#. Can the pipeline be run using the "runcompss" command?
+
+
+7 - Hook up your repository for continuous integration
+------------------------------------------------------
+
+Now that you have a fully documented pipeline, with tests it is possible to hook up your GitHub repository with ReadTheDocs.org, Travisci.org and Landscape.io. These services will automatically build you documentation, run the tests and check the compliance of the code with that of PEP8 respectively.
+
+It is possible to login to each service using your GitHub account and link the repository.
+
+
+8 - Congratulations
+-------------------
+
+You now have a pipeline that could be integrated into the MuG VRE.

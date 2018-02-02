@@ -47,7 +47,19 @@ Below is the example Tool config file for the process_test workflow. It is locat
            "executable": "/home/pmes/code/mg-process-test/process_test.py",
            "clouds": {}
        },
-       "input_files": [],
+       "input_files": [
+           {
+               "name": "input",
+               "description": "Input file",
+               "help": "path to the input file",
+               "file_type": ["TXT"],
+               "data_type": [
+                   "text"
+               ],
+               "required": true,
+               "allow_multiple": false
+           }
+       ],
        "arguments": [],
        "output_files": [
            {
@@ -87,7 +99,7 @@ Defines the configurations required for by the pipeline including parameters tha
            {
                "required": true,
                "allow_multiple": false,
-               "name": "genome",
+               "name": "input",
                "value": "<unique_file_id>"
            }
        ],
@@ -105,17 +117,17 @@ Defines the configurations required for by the pipeline including parameters tha
            {
                "required": true,
                "allow_multiple": false,
-               "name": "bwa_index",
+               "name": "output",
                "file": {
-                   "file_type": "TAR",
+                   "file_type": "TXT",
                    "meta_data": {
                        "visible": true,
-                       "tool": "bwq_indexer",
+                       "tool": "testTool",
                        "description": "Output"
                    },
-                   "file_path": "tests/data/macs2.Human.GCA_000001405.22.fasta.bwa.tar.gz",
-                   "data_type": "sequence_mapping_index_bwa",
-                   "compressed": "gzip"
+                   "file_path": "tests/data/test.txt",
+                   "data_type": "text",
+                   "compressed": ""
                }
            }
        ]
@@ -133,20 +145,15 @@ Lists the file location that are used as input. The configuration names should m
    [
        {
            "_id": "<unique_file_id>",
-           "data_type": "sequence_dna",
-           "file_type": "FASTA",
-           "file_path": "tests/data/macs2.Human.GCA_000001405.22.fasta",
+           "data_type": "text",
+           "file_type": "TXT",
+           "file_path": "tests/data/test_input.txt",
            "compressed": 0,
            "sources": [],
-           "creation_time": {
-               "sec": 1503567524,
-               "usec": 0
-           },
            "taxon_id": "0",
            "meta_data": {
                "visible": true,
-               "validated": 1,
-               "assembly": "GCA_000001405.22"
+               "validated": 1
            }
        }
    ]

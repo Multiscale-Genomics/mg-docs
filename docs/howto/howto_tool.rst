@@ -197,7 +197,7 @@ The run function takes the input FASTA file, from this is generates a list of th
        from pycompss.api.api import compss_wait_on
    except ImportError:
        logger.warn("[Warning] Cannot import \"pycompss\" API packages.")
-    logger.warn("          Using mock decorators.")
+       logger.warn("          Using mock decorators.")
 
     from utils.dummy_pycompss import FILE_IN, FILE_OUT # pylint: disable=ungrouped-imports
     from utils.dummy_pycompss import task # pylint: disable=ungrouped-imports

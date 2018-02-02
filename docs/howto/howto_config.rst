@@ -60,6 +60,11 @@ Below is the example Tool config file for the process_test workflow. It is locat
                "allow_multiple": false
            }
        ],
+       "input_files_combinations": [
+           [
+               "input"
+           ]
+       ],
        "arguments": [],
        "output_files": [
            {
@@ -80,6 +85,74 @@ Below is the example Tool config file for the process_test workflow. It is locat
            }
        ]
    }
+
+Input Files
+^^^^^^^^^^^
+The input_files section defines the types of files that are able to be processed. This can be one or many files. Each file object within the list needs to have the follwoing key-pairs:
+
+- name
+- description
+- help
+- file_type
+- data_type
+- required
+- allow_multiple
+
+file_type and data_type can have multiple values in. For example in the case of a DNA sequence this can have the type of "sequence_genomic" or "sequence_dna", so a tool that is able to accept both can have both in the list.
+
+The input_files_combinations is a list of lists of the valid permutations of files that can be accepted by the tool. For example with aligners that are able to hande single or paried-end alignments would need to be able to accept 1 or 2 FASTQ files. These lists use the name value from the input_files file objects.
+
+Arguements
+^^^^^^^^^^
+If extra arguements are required by a tool to perform its functions these are defined in the arguements section of the JSON. The arguements section is a list of key-value objects consisting of the following keys:
+
+- name
+- description
+- help
+- type
+- required
+- default
+
+Examples that can be used within the list include:
+
+.. code-block:: none
+
+   {
+       "name": "test_example_bool_param",
+       "description": "Example boolean parameter",
+       "help": "Example of a boolean selector",
+       "type": "boolean",
+       "required": false,
+       "default": false
+   },
+   {
+       "name": "test_example_integer_param",
+       "description": "Example integer parameter",
+       "help": "Example of an integer input",
+       "type": "integer",
+       "required": false,
+       "default": 5
+   },
+   {
+       "name": "test_example_string_param",
+       "description": "Example string parameter",
+       "help": "Example of a string input",
+       "type": "string",
+       "required": false,
+       "default": "default_string_value"
+   },
+   {
+       "name": "test_example_selector_param",
+       "description": "Example selector parameter",
+       "help": "Example of a selector input",
+       "type": {
+           "type": "string",
+           "enum": ["abc", "def", "xyz"]
+       }
+       "required": false,
+       "default": "xyz"
+   }
+
 
 Test Configuration Files
 ------------------------

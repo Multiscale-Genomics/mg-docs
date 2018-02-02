@@ -58,6 +58,8 @@ From here you can then customise the `README.md`, copyright `NOTICE`, setup.py a
 1 - Create a Tool
 -----------------
 
+See the `HOWTO - Tools <howto_tool.html>`_ for details about writing a tool and `HOWTO - Test Your Code <howto_testing.html>`_ about how to write relevant tests
+
 1.1 - Tool Development
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -106,6 +108,8 @@ Checklist 2
 3 - Create a Pipeline
 ---------------------
 
+See the `HOWTO - Pipelines <howto_pipeline.html>`_ for details about writing a pipeline and `HOWTO - Test Your Code <howto_testing.html>`_ about how to write relevant tests.
+
 3.1 - Pipeline Development
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -140,6 +144,8 @@ Checklist 3
 
 4 - VRE JSON Configuration
 --------------------------
+
+See the `HOWTO - Configuration Files <howto_config.html>`_ for details about writing a MuG VRE JSON configuration files.
 
 Checklist 4
 ^^^^^^^^^^^

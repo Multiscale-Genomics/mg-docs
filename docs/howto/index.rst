@@ -23,6 +23,7 @@ HOWTO
    howto_tool
    howto_pipeline
    howto_documentation
+   howto_license
    howto_config
    howto_logging
    howto_testing

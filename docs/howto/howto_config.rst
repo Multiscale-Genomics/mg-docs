@@ -153,6 +153,11 @@ Examples that can be used within the list include:
        "default": "xyz"
    }
 
+Examples
+^^^^^^^^
+
+For larger examples of VRE JSON configuration files have a look at the `mg-process-fastq configuration files <https://github.com/Multiscale-Genomics/mg-process-fastq/tree/master/tool_config>`_ on GitHub.
+
 
 Test Configuration Files
 ------------------------
@@ -230,3 +235,8 @@ Lists the file location that are used as input. The configuration names should m
            }
        }
    ]
+
+Examples
+^^^^^^^^
+
+For larger examples of JSON configuration files that can be used to test pipelines have a look at the `mg-process-fastq test configuration files <https://github.com/Multiscale-Genomics/mg-process-fastq/tree/master/tests/json>`_ on GitHub.

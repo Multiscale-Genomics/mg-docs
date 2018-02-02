@@ -42,13 +42,15 @@ This is a test tool that takes an input file, then counts the number of characte
    """
    from __future__ import print_function
 
+   from utils import logger
+
    try:
        from pycompss.api.parameter import FILE_IN, FILE_OUT
        from pycompss.api.task import task
        from pycompss.api.api import compss_wait_on
    except ImportError:
-       print("[Warning] Cannot import \"pycompss\" API packages.")
-       print("          Using mock decorators.")
+       logger.warn("[Warning] Cannot import \"pycompss\" API packages.")
+       logger.warn("          Using mock decorators.")
 
        from utils.dummy_pycompss import FILE_IN, FILE_OUT  # pylint: disable=ungrouped-imports
        from utils.dummy_pycompss import task  # pylint: disable=ungrouped-imports

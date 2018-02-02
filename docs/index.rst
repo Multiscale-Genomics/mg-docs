@@ -132,7 +132,6 @@ RESTful APIs
 
    howto/index
    coding_standards
-   licensing
    license
 
 

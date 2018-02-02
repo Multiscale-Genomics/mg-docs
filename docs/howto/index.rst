@@ -59,6 +59,9 @@ The following documents will help guide with the creation of all the components 
 `Testing Your Code <howto_testing.html>`_
    A important part of making sure that a pipeline or tool is ready for integration is ensuring that the code has been tested. This covers testing the code is functional and that it is capable of running within the infrastructure used by the VRE.
 
+`Licensung Your Code <howto_license.html>`_
+   The Apache 2.0 license is required for pipelines and tools to to be integrated into the MuG VRE.
+
 `VRE Configuration <howto_config.html>`_
    This takes you through creating JSON configuration files for your tool. This should define all the inputs, outputs and any arguments that are required by the pipelines and tools.
 

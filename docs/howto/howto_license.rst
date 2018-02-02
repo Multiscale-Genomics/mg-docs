@@ -13,8 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-Licensing
-=========
+HOWTO - Licensing
+=================
 
 All software developed as part of the VRE by the MuG consortium should be openly
 licensed using the Apache 2.0 software license. This should encompass the APIs,

@@ -320,10 +320,10 @@ The run function takes the input FASTA file, from this is generates a list of th
 
            Parameters
            ----------
-           input_files : list
+           input_files : dict
                List containing the location of the genome assembly FASTA file
-           meta_data : list
-           output_files : list
+           meta_data : dict
+           output_files : dict
                List of outpout files generated
 
            Returns
@@ -340,6 +340,10 @@ The run function takes the input FASTA file, from this is generates a list of th
                output_files["index"]
            )
            results = compss_wait_on(results)
+
+           if results is False:
+               logger.fatal("BWA Indexer: run failed")
+               return {}, {}
 
            output_metadata = {
                "index": Metadata(

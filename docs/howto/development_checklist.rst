@@ -53,7 +53,15 @@ From GitHub take a copy of the mg-process-test repository:
 
    git push origin master
 
-From here you can then customise the `README.md`, copyright `NOTICE`, setup.py and __init__.py files to match your new repository.
+From here you can then customise the following files to match your new repository:
+
+- `README.md`
+- `NOTICE`
+- setup.py
+- `__init__.py`
+- docs/conf.py
+
+The files in `docs` contain boilerplate data that matches the processes and tools already in the repository, so should be updated as you add new pipelines and tools.
 
 1 - Create a Tool
 -----------------

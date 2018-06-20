@@ -26,7 +26,7 @@ Running the pipeline manually
 .. code-block:: none
    :linenos:
 
-   python process_test.py --config config.json --in_metadata input_files.json --out_metadata output_metadata.json
+   python mg_process_test/process_test.py --config config.json --in_metadata input_files.json --out_metadata output_metadata.json
 
 
 Testing a Tools and Pipelines
@@ -62,7 +62,7 @@ An example pytest for the `test_writer <howto_tool.html>`_ tool:
 
    import os.path
 
-   from tool.testTool import testTool
+   from mg_process_test.tool.testTool import testTool
 
    def test_testTool():
        """
@@ -108,7 +108,7 @@ It is possible to use a local version of the `COMPS virtual machine <https://www
       --library_path=${HOME}/bin                                     \\
       --pythonpath=/<pyenv_virtenv_dir>/lib/python2.7/site-packages/ \\
       --log_level=debug                                              \\
-      process_test.py                                                \\
+      mg_process_test/process_test.py                                \\
          --config <repo>/tool_config/process_test.json               \\
          --in_metadata <repo>/tests/json/input_process_test.json     \\
          --out_metadata <repo>/tests/json/output_process_test.json

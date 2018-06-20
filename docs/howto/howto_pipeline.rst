@@ -45,7 +45,7 @@ There are 2 ways of calling this function, either directly from another program 
    from basic_modules.workflow import Workflow
    from utils import logger
 
-   from tools.testTool import testTool
+   from mg_process_test.tools.testTool import testTool
 
    # ------------------------------------------------------------------------------
 

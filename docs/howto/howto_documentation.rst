@@ -159,7 +159,7 @@ An example of a pipeline block is as follows:
          :linenos:
 
          cd ${mg-process-test}
-         python process_test.py --config tests/json/process_test.json --in_metadata tests/json/input_test.json --out_metadata tests/results.json --local
+         python mg_process_test/process_test.py --config mg_process_test/tests/json/process_test.json --in_metadata mg_process_test/tests/json/input_test.json --out_metadata mg_process_test/tests/results.json --local
 
       The `--local` parameter should be used if the script is being run within an environment where (py)COMPSs is not installed. It can also be used in an environment where (py)COMPSs is installed, but the script needs to be run locally for testing purposes.
 
@@ -169,7 +169,7 @@ An example of a pipeline block is as follows:
          :linenos:
 
          cd /home/compss/code/mg-process-test
-         runcompss --lang=python process_test.py --config /home/compss/code/mg-process-test/tests/json/process_test.json --in_metadata /home/compss/code/mg-process-test/tests/json/input_test.json --out_metadata /home/compss/code/mg-process-test/tests/results.json
+         runcompss --lang=python mg_process_test/process_test.py --config /home/compss/code/mg-process-test/mg_process_test/tests/json/process_test.json --in_metadata /home/compss/code/mg-process-test/mg_process_test/tests/json/input_test.json --out_metadata /home/compss/code/mg-process-test/mg_process_test/tests/results.json
 
       Methods
       =======

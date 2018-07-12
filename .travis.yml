@@ -30,6 +30,7 @@ install:
     - pip install sphinx==1.7.2
 
 before_script:
+    - cd ${HOME}/build/Multiscale-Genomics/mg-docs
     - chmod +x scripts/travis/docs_harness.sh
 
 script:

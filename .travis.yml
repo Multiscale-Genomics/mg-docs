@@ -29,5 +29,8 @@ install:
     # TODO test when 1.7.4 is available
     - pip install sphinx==1.7.2
 
+before_script:
+    - chmod +x scripts/travis/docs_harness.sh
+
 script:
     ./scripts/travis/docs_harness.sh

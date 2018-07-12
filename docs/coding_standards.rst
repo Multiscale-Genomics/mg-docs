@@ -23,7 +23,7 @@ Language and Versions
 ---------------------
 
 - Python 2.7
-- Python 3.5
+- Python 3.6
 
 Installation Method
 -------------------
@@ -89,9 +89,13 @@ git repository should include:
       <module>/
          __init__.py
          ...
+      scripts/
+         travis/
+            <travis_test_scripts>.sh
       tests/
          data/
          test_<function_name>.py
+      .travisci.yml
       LICENSE
       README.md
       requirements.txt
@@ -249,6 +253,9 @@ Runs of tests should also tidy up after themselves once they have completed so
 that the environment is clean ready for the next test case to run. This could
 mean that some files will get generated multiple times, but these should be
 smalls sample datasets.
+
+To avoid the use of too many datasets and provide function level testing Mock
+should be used.
 
 The following options should be used to test code:
 

@@ -187,8 +187,16 @@ Defines the configurations required for by the pipeline including parameters tha
                "value": "run001"
            },
            {
+               "name": "execution",
+               "value": "/../run001"
+           },
+           {
                "name": "description",
                "value": null
+           },
+           {
+               "name": "<tool_argument>"
+               "value": "<value_from_form>"
            }
        ],
        "output_files": [
@@ -210,6 +218,8 @@ Defines the configurations required for by the pipeline including parameters tha
            }
        ]
    }
+
+In the arguments there are 2 sets (project and execution) that will always be present and are provided by the VRE at the point of submission of the to the tool. These are the name of the project that has been given in the VRE and is defined by the user. The second is the execution path, this is the location for where the input files are located and can be used as the working directory for the tool. The other parameters in the arguments list are from form elements based on what parameters the tool requires from the user at run time.
 
 
 input_file_metadata.json

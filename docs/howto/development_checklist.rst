@@ -63,18 +63,54 @@ From here you can then customise the following files to match your new repositor
 
 The files in `docs` contain boilerplate data that matches the processes and tools already in the repository, so should be updated as you add new pipelines and tools.
 
-1 - Create a Tool
+1 - Setup You Python environment
+--------------------------------
+
+1.1 - pyenv
+^^^^^^^^^^^
+This is required for managing the version of Python and the installation
+environment for the Python modules so that they can be installed in the user
+space.
+
+.. code-block:: none
+   :linenos:
+
+   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+   echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+   echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+
+   # Add the .bash_profile to your .bashrc file
+   echo 'source ~/.bash_profile"' >> ~/.bashrc
+
+   git clone https://github.com/pyenv/pyenv-virtualenv.git ${PYENV_ROOT}/plugins/pyenv-virtualenv
+
+   pyenv install 2.7.14
+   pyenv virtualenv 2.7.14 mg-process-test
+
+
+1.2 - Install Tool API
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+   :linenos:
+
+   pyenv activate mg-process-test
+   pip install git+https://github.com/Multiscale-Genomics/mg-tool-api.git
+
+
+2 - Create a Tool
 -----------------
 
 See the `HOWTO - Tools <howto_tool.html>`_ for details about writing a tool and `HOWTO - Test Your Code <howto_testing.html>`_ about how to write relevant tests
 
-1.1 - Tool Development
+2.1 - Tool Development
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Using the `testTool.py` script as a template, create you new tool.
 
-Checklist 1
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. There is a license at the header of the script
 #. Documentation for each function.
@@ -82,10 +118,10 @@ Checklist 1
 #. Tool has been added to `docs/tool.rst`
 
 
-2 - Create a Test to run the Tool
+3 - Create a Test to run the Tool
 ---------------------------------
 
-2.1 - Test Dataset
+3.1 - Test Dataset
 ^^^^^^^^^^^^^^^^^^
 
 Create a small test dataset that can be used when testing the code. This should match the input file type required by the Tool.
@@ -94,13 +130,13 @@ When the tool has been run the output for the test datasets should provide a val
 
 Once the datasets have been generated the procedure for how the test sets were created should be documented in a new "NNN.rst" file. This should contain the source of the data, publications, where the files were downloaded from and how the data was handled so that this can be repeated if the datasets need to be regenerated or changed at a later stage. This file should then be linked into the rest of the documentation, this is usually done by linking the file in the table of contents block in the index page.
 
-2.2 - Test Scripts
+3.2 - Test Scripts
 ^^^^^^^^^^^^^^^^^^
 
 Create a script that uses pytest to check that the required output files have been generated and are not empty. Other tests can be added here if there are other aspects that should be tested. Examples could include testing if a JSON object has the expected parameters.
 
-Checklist 2
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. There is a test to run each single tool
 #. There is a license header in each test script
@@ -113,31 +149,31 @@ Checklist 2
 #. Ensure that the output of running the tests matches what you would expect
 
 
-3 - Create a Pipeline
+4 - Create a Pipeline
 ---------------------
 
 See the `HOWTO - Pipelines <howto_pipeline.html>`_ for details about writing a pipeline and `HOWTO - Test Your Code <howto_testing.html>`_ about how to write relevant tests.
 
-3.1 - Pipeline Development
+4.1 - Pipeline Development
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Using the `process_test.py` script as a template, create a pipeline to accept the configuration and input JSON files that describe the parameters and files to get passed into the pipeline. The pipeline should manage the passing of file locations and parameters to each of the tools.
 
 
-3.2 - Create a Test to run the Pipeline
+4.2 - Create a Test to run the Pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a script that uses pytest to check that the required input files and configuration parameters are accepted by the pipeline and the relevant output files have been generated and are not empty. Other tests can be added to be more comprehensive.
 
 The pipeline is running tools developed as part of part 1, so there should be no need for creating new datasets.
 
-3.3 - Create test config and input JSON files
+4.3 - Create test config and input JSON files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 JSON files need to be created that duplicate what would be the expected input coming from the VRE and saved in the `tests/json/.` directory of the repository. Example files can be found in the `HOWTO on Configuration <howto_config.html>`_. There are also examples of these files in mg-process-test in the `test/json/.` These files allow a user to run the sample datasets from the command line either on their own computer or on one with (py)COMPSs installed.
 
-Checklist 3
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. There is a license in the header of all pipelines and tests
 #. There is a test to run each pipeline
@@ -150,34 +186,34 @@ Checklist 3
 #. The script can be run from the command line
 
 
-4 - VRE JSON Configuration
+5 - VRE JSON Configuration
 --------------------------
 
 See the `HOWTO - Configuration Files <howto_config.html>`_ for details about writing a MuG VRE JSON configuration files.
 
-Checklist 4
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. Ensure that there is a JSON configuration file present in the tool_json for each pipeline.
 
 
-5 - Installation Documentation
+6 - Installation Documentation
 ------------------------------
 
-Checklist 5
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. Make sure that setup.py, setup.cfg and requirements.txt are updated with any new packages required for installation
 #. Update docs/install.rst if there is any external software that is required by tool or pipeline along with the required command to install that software
 
 
-6 - COMPSs testing
+7 - COMPSs testing
 ------------------
 
 Now that you have a functional pipeline and tool it now needs to be tested within a COMPSs environment. Download the latest version of the `COMPSs virtual machine <https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar/>`_ from the BSC website.
 
-Checklist 6
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. Was it possible to install everything based on the installation scripts and documentation?
 #. Do all the test scripts pass when they are run?
@@ -185,22 +221,22 @@ Checklist 6
 #. Can the pipeline be run using the "runcompss" command?
 
 
-7 - Hook up your repository for continuous integration
+8 - Hook up your repository for continuous integration
 ------------------------------------------------------
 
 Now that you have a fully documented pipeline, with tests it is possible to hook up your GitHub repository with ReadTheDocs.org, Travisci.org and Landscape.io. These services will automatically build you documentation, run the tests and check the compliance of the code with that of PEP8 respectively.
 
 It is possible to login to each service using your GitHub account and link the repository.
 
-Checklist 7
-^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 #. You have your documentation building on ReadTheDocs.org
 #. You have your test scripts running on TravisCI and passing
 #. Your code is being continually analysed by Landscape.io
 
 
-8 - Congratulations
+9 - Congratulations
 -------------------
 
 You now have a pipeline that could be integrated into the MuG VRE.

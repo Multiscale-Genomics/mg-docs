@@ -20,6 +20,7 @@ HOWTO
    :maxdepth: 2
    :caption: Contents:
 
+   development_checklist
    howto_tool
    howto_pipeline
    howto_documentation
@@ -27,7 +28,6 @@ HOWTO
    howto_config
    howto_logging
    howto_testing
-   development_checklist
 
 The following is a walk through of developing a tool and pipeline wrapper to include new functionality within the MuG VRE. There are several stages covering the Tool development, using the tool within a pipeline and defining the configuration files required so that the final product can be smoothly integrated into the MuG VRE.
 

@@ -175,7 +175,7 @@ Now that we know the basics it is possible to apply this to writing a tool that 
 
 Here is a tool that uses BWA to index a genome sequence file that has been saved in FASTA format.
 
-The run function takes the input FASTA file, from this is generates a list of the locations of the output files. The input file and output files are passed to the bwa_indexer function. The files do not need to be listed in the return call so True is fine. COMPSS handles the passing back of the files to the run function. The run function then returns the output files to the pipeline or the VRE.
+The run function takes the input FASTA file, from this it generates a list of the locations of the output files. The input file and output files are passed to the bwa_indexer function. The files do not need to be listed in the return call so True is fine. COMPSS handles the passing back of the files to the run function. The run function then returns the output files to the pipeline or the VRE.
 
 .. code-block:: python
    :linenos:

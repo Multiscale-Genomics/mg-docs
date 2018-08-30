@@ -16,12 +16,12 @@
 HOWTO - Logging
 ===============
 
-As the pipelines and tools with the MuG VRE environment run wthout the terminal returning to the user it is important to have a way to communicate to the user that is an error with the pipeline. As the code is run within a cluster the text that is printed to screen wont be returned to the user. Within the Tool API a logging interface has been implemented
+As the pipelines and tools with the MuG VRE environment run without the terminal returning to the user, it is important to have a way to communicate to the user that there is an error with the pipeline. As the code is run within a cluster, the text that is printed to screen won't be returned to the user. Within the Tool API a logging interface has been implemented.
 
 Levels of Logging
 -----------------
 
-When there is an issue it can be pass back to the VRE. These are tracked and passed back to the VRE as the application finishes. There is the option to raise errors in 1 of 6 states:
+When there is an issue it can be passed back to the VRE. These are tracked and passed back to the VRE as the application finishes. There is the option to raise errors in 1 of 6 states:
 
 - INFO
    Confirmation that Tool execution is working as expected.

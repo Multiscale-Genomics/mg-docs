@@ -63,7 +63,7 @@ From here you can then customise the following files to match your new repositor
 
 The files in `docs` contain boilerplate data that matches the processes and tools already in the repository, so should be updated as you add new pipelines and tools.
 
-1 - Setup You Python environment
+1 - Setup Your Python environment
 --------------------------------
 
 1.1 - pyenv

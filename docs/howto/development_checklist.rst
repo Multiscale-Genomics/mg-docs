@@ -48,7 +48,7 @@ From GitHub take a copy of the mg-process-test repository:
    git add .
    git commit -m 'Initial commit'
 
-   git remote add origin https://github.com/USERNAME/mg-process-test1.git
+   git remote add origin https://github.com/<USERNAME>/mg-process-test1.git
    git remote -v
 
    git push origin master
